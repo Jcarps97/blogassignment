@@ -12,19 +12,25 @@ Comment.init(
       autoIncrement: true,
     },
 
-    commentContent: {
+    body: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    user_id: {
+        type: DataTypes.INTEGER,
         references: {
             model: 'user',
-            key: 'username'
+            key: 'id'
         }
       },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        modeel: 'post',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
