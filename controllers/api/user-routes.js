@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models')
-const withAuth = require('../../utils/auth')
+// const withAuth = require('../../utils/auth')
 
 
 //signup
@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
             username: req.body.username,
-            email: req.body.email,
             password: req.body.password,
         })
         const betterUser = userData.get({plain:true});
