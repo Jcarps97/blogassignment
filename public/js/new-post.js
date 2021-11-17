@@ -2,7 +2,7 @@ const newPostFormHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#pname').value.trim();
-    const body = document.querySelector('#pspecies').value.trim();
+    const body = document.querySelector('#pbody').value.trim();
 
     const response = await fetch(`/api/post`, {
         method: `POST`,
