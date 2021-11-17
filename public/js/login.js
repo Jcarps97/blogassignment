@@ -14,7 +14,7 @@ const loginUserFormHandler = async (event) => {
         console.log(response);
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
-      console.log("yay!");
+      console.log("logged in");
       document.location.replace('/dashboard');
     } else {
       window.alert('Incorrect username or password, please try again');

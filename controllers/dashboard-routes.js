@@ -19,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
 
       res.render('all-posts', { // all-posts handlebar
         layout: 'dashboard',
-        pets,
+        posts,
         logged_in: req.session.logged_in,
       });
     } catch (err) {
@@ -62,4 +62,4 @@ router.get('/delete', withAuth, (req, res) => {
   });
 });
 
-  module.exports = router;
+module.exports = router;

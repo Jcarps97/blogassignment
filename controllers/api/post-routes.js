@@ -2,13 +2,13 @@ const withAuth = require('../../utils/auth')
 const router = require('express').Router();
 const { Comment, Post } = require('../../models')
 
-
+//Find a post
 router.get('/:id', withAuth, async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id, {
       });
   
-      const vetData = await Vet.findAll({
+      const commentData = await Comment.findAll({
         where: {
           post_id: req.params.id,
         }
