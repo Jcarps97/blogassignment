@@ -4,20 +4,21 @@ const { User } = require('../../models')
 
 
 //signup
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
     console.log("user route signup hits")
     try {
         const userData = await User.create({
             username: req.body.username,
             password: req.body.password,
         })
-        const betterUser = userData.get({plain:true});
-        console.log(betterUser);
+        // const betterUser = userData.get({plain:true});
+        // console.log(betterUser);
 
         req.session.save(() => {
-            req.session.user_id = betterUser.id;
-            req.session.username = betterUser.username;
+            // req.session.user_id = betterUser.id;
+            // req.session.username = betterUser.username;
             req.session.logged_in = true;
+            res.status(200).json(userData)
         })
     } catch (err) {
         res.status(400).json(err);
