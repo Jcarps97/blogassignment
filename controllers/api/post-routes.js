@@ -112,7 +112,7 @@ router.get('/:id', withAuth, async (req, res) => {
     }
   });
   
-  // NEW COMMENT  
+  //New comment render  
   router.get('/:id/new/comment', withAuth, (req, res) => {
     const post = {id: req.params.id}
     res.render('new-comment', { 
