@@ -8,13 +8,13 @@
         <div class= "col-sm-10 col-md-6 col-lg-4">
         <div class="card large">
           <div class="card-content">
-            <span class="test card-title activator grey-text text-darken-4">{{post.title}}<i class="material-icons right">...</i></span>
-            <p><a href="/api/pets/{{post.id}}" class="card-link">View Post</a></p>
+            <span class="test card-title activator grey-text text-darken-4">{{post.title}}<i class="material-icons right"></i></span>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Pet Details<i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right"></i></span>
             <p>{{post.body}}</p>
             <p>By: {{post.user_id}}</p>
+            <p><a href="/api/post/{{post.id}}" class="card-link">View Post</a></p>
           </div>
         </div>
         </div>

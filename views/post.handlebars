@@ -1,0 +1,37 @@
+<div class="row m-auto">
+        <div class="p-4 col-sm-12 col-lg-3">
+            <a href="/dashboard/edit/{{post.id}}"><button class="waves-effect waves-light btn-large">Edit Post</button></a>
+        </div>
+        <div class="p-4 col-sm-12 col-lg-3">
+            <button id="delete-post-button" class="waves-effect waves-light btn-large">Delete Post</button>
+        </div>
+        <div class="p-4 col-sm-12 col-lg-3">
+            <a href="/api/post/{{post.id}}/new/comment"><button class="waves-effect waves-light btn-large">Add New Comment</button></a>
+        </div>
+    </div>
+
+    <input type="hidden" id="edit-post-id" value="{{post.id}}"/>
+
+    <div class="row p-4">
+        <div class="col-12 col-md-4 col-lg-6">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body" style="p-4">
+                    <h3>Title: {{post.title}}</h3>
+                    <h5>{{post.body}}</h5>
+                </div>
+            </div>
+        </div>
+                {{!-- Populate comments for post --}}
+            {{#each comments as |comment| }}
+                <div class="col-12 col-md-4 col-lg-6">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{comment.body}}</h5>
+                            <h5 class="card-title">By: {{comment.user_id}}</h5>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+    </div>
+
+<script src="/js/delete-post.js"></script>
