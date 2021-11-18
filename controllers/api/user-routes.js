@@ -4,7 +4,7 @@ const { User } = require('../../models')
 
 
 //signup
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     console.log("user route signup hits")
     try {
         const userData = await User.create({
