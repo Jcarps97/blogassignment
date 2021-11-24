@@ -1,3 +1,4 @@
+// const { response } = require("express");
 const post_id = document.querySelector('input[name="post-id"]').value;
 
 async function newCommentFormHandler(event) {
@@ -14,8 +15,8 @@ async function newCommentFormHandler(event) {
       headers: { 'Content-Type': 'application/json' },
     });
     
-    console.log(response)
     if (response.ok) {
+      console.log(response)
       window.alert("Comment added!");
       document.location.replace(`/api/post/${post_id}`);
     } else {
