@@ -28,7 +28,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
       const comment = commentData.get({ plain: true});
   
-      res.render('vet-visit', {
+      res.render('comment', {
         layout: 'dashboard',
         comment,
         logged_in: req.session.logged_in
@@ -43,7 +43,8 @@ router.get('/:id', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
     try {
       const commentData = await Comment.create({
-        ...req.body, 
+        body: req.body.body,
+        user_id: req.session.user_id, 
     });
       res.status(200).json(commentData);
     } catch (err) {

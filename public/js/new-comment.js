@@ -3,17 +3,18 @@ const post_id = document.querySelector('input[name="post-id"]').value;
 async function newCommentFormHandler(event) {
     event.preventDefault();
 
-    const commentbody = document.querySelector('#new-comment-body').value.trim();
+    const body = document.querySelector('#new-comment-body').value.trim();
 
     const response = await fetch(`/api/comment`, {
       method: 'POST',
       body: JSON.stringify({
         post_id,
-        commentbody
+        body
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    
+    console.log(response)
     if (response.ok) {
       window.alert("Comment added!");
       document.location.replace(`/api/post/${post_id}`);
